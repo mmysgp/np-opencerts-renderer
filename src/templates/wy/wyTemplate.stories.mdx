@@ -1,0 +1,22 @@
+import { Meta, Preview, Props, Description, Story } from "@storybook/addon-docs/blocks";
+import { object } from "@storybook/addon-knobs";
+import { WyTemplate } from "./wyTemplate";
+import { wyTemplateCertificate } from "../samples/customTemplateSample";
+
+<Meta title="MDX|WyTemplate" component={WyTemplate} />
+
+# WyTemplate component
+
+<Description of={WyTemplate} />
+
+# Props
+
+<Props of={WyTemplate} />
+
+# Usage
+
+<Preview>
+  <Story name="basic sample">
+    <WyTemplate document={object("document", wyTemplateCertificate)} />
+  </Story>
+</Preview>

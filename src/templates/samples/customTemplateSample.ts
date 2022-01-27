@@ -1,28 +1,31 @@
 import { v2 } from "@govtechsg/open-attestation";
 
-export interface CustomTemplateCertificate extends v2.OpenAttestationDocument {
+export interface WyTemplateCertificate extends v2.OpenAttestationDocument {
   name: string;
-  institute: string;
-  foo?: {
-    title: string;
+  recipient: {
+    name: string;
   };
   $template: v2.TemplateObject;
 }
 
-export const customTemplateCertificate: CustomTemplateCertificate = {
-  name: "John Doe",
-  institute: "Institute of John Doe",
+export const wyTemplateCertificate: WyTemplateCertificate = {
+  name: "OpenAttestation Sample Certificate",
   issuers: [
     {
-      name: "institute of blockchain"
+      name: "My name",
+      documentStore: "0xBBb55Bd1D709955241CAaCb327A765e2b6D69c8b",
+      identityProof: {
+        location: "few-green-cat.sandbox.openattestation.com",
+        type: v2.IdentityProofType.DNSTxt
+      }
     }
   ],
+  recipient: {
+    name: "John Doe"
+  },
   $template: {
-    name: "custom",
+    name: "WY",
     type: v2.TemplateType.EmbeddedRenderer,
     url: "http://localhost:3000"
-  },
-  foo: {
-    title: "Bar is awesome"
   }
 };
